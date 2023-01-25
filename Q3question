@@ -1,0 +1,37 @@
+3     Create a class called "Book" with the following data members:
+title (string)
+author (string)
+ISBN (string)
+price (double)
+stock (int)
+In the main function, create an instance of the Book class and initialize its data members. Then, use the fstream
+library to open a file for writing and write the contents of the Book object to the file in binary format.
+
+ans=
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+// Class to define the properties
+class book {
+public:
+   string title,author,ISBN;
+   int stock;
+   double price;
+};
+int main(){
+   book ob;
+   ob.title="The story";
+   ob.author="Helen";
+   ob.ISBN="lki";
+   ob.price=50.6;
+   ob.stock=52;
+
+   ofstream file1;
+   file1.open("book.txt", ios::binary);
+   file1.write((char*)&ob,sizeof(ob));
+   file1.close();
+   
+   cout<<"book info is saved"<<endl;
+   return 0;
+}
